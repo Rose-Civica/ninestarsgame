@@ -1,5 +1,10 @@
-import React, { Component } from 'react';
-import { possibleCombinationSum, Stars, Button, Answer, Numbers, Timer, DoneFrame} from './GameFunctions';
+import React from 'react';
+import { possibleCombinationSum, Stars, Button, Answer, Numbers, Timer, DoneFrame } from './GameFunctions';
+import './css/bootstrap.css';
+import './css/fontawesome-all.css';
+
+var _ = require('lodash');
+
 
 class Game extends React.Component {
     static randomNumber = () => Math.floor(Math.random() * 9) + 1;
@@ -25,7 +30,7 @@ class Game extends React.Component {
         this.timer = 0;
     };
     startTimer = () => {
-        if (this.timer == 0) {
+        if (this.timer === 0) {
             this.timer = setInterval(this.countDown, 1000);
         }
     };

@@ -1,6 +1,7 @@
 import React from 'react';
+var _= require('lodash');
 
-var possibleCombinationSum = function(arr, n) {
+export var possibleCombinationSum = function(arr, n) {
 	if (arr.indexOf(n) >= 0) { return true; }
 	if (arr[0] > n) { return false; }
 	if (arr[arr.length - 1] > n) {
@@ -17,7 +18,7 @@ var possibleCombinationSum = function(arr, n) {
 	}
 	return false;
 };
-const Stars = (props) => {
+export const Stars = (props) => {
 	return (
   	<div className="col-5" >
   	  { _.range(props.numberOfStars).map(i =>
@@ -27,7 +28,7 @@ const Stars = (props) => {
   );  
 };
 
-const Button = (props) => {
+export const Button = (props) => {
 	let button;
 	switch (props.answerIsCorrect) {
 		case true:
@@ -67,7 +68,7 @@ const Button = (props) => {
   );
 };
 
-const Answer = (props) => {
+export const Answer = (props) => {
 	return (
   	<div className="col-5">
   	  {props.selectedNumbers.map((number,i) =>
@@ -77,37 +78,38 @@ const Answer = (props) => {
   );
 };
 
-const Numbers = (props) => {
-	const numberClassName = (number) => {
-		if(props.usedNumbers.indexOf(number)>=0){
-			return 'used';
-		}
-		if(props.selectedNumbers.indexOf(number)>=0){
-			return 'selected';
-		}    
-	}; 
-	return (
-  	<div className="card text-center">
-    	<div>
-    	  {Numbers.list.map((number,i) =>
-    	  	<span key={i} className={numberClassName(number)}
-          			onClick={()=>props.selectNumber(number)}>
-            {number}
-          </span>
-        )}
-</div>  	  
-</div>
-  );
+export const Numbers = (props) => {
+    const numberClassName = (number) => {
+        if (props.usedNumbers.indexOf(number) >= 0) {
+            return 'used';
+        }
+        if (props.selectedNumbers.indexOf(number) >= 0) {
+            return 'selected';
+        }
+    };
+    return (
+        <div className="card text-center">
+            <div>
+                {Numbers.list.map((number, i) =>
+                    <span key={i} className={numberClassName(number)}
+                        onClick={() => props.selectNumber(number)}>
+                        {number}
+                    </span>
+                )}
+            </div>
+        </div>
+    );
 };
 
-const Timer = (props) => {	
+
+export const Timer = (props) => {	
 	return (
   	<div id="myTimer" className="text-center">
   		<strong>{props.seconds}</strong> seconds remaining!
  	 </div>);
 };
 
-const DoneFrame = (props) => {	
+export const DoneFrame = (props) => {	
 	return(
   	<div className="text-center">
   	  <h2 className={props.doneStatus==='You Win! Awesome! :)' ?
@@ -121,4 +123,3 @@ const DoneFrame = (props) => {
   );
 };
 
-export default { possibleCombinationSum , Stars, Button, Answer, Numbers, Timer, DoneFrame};
