@@ -7,7 +7,7 @@
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1"
   },
-  "homepage": "http://Rose-Civica.github.io/ninestarsgame",
+  "homepage": "http://rose-civica.github.io",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
